@@ -27,8 +27,6 @@
       color: var(--text);
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
-      background-image: radial-gradient(ellipse 80% 40% at 50% -10%, rgba(80,120,100,0.18) 0%, transparent 70%);
-      background-attachment: fixed;
     }
 
     /* ── NAV ── */
@@ -102,38 +100,59 @@
     }
     .photo-strip::-webkit-scrollbar { display: none; }
 
-    .photo-strip::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 70% 60% at 30% 55%, rgba(180,200,190,0.13) 0%, transparent 70%),
-        radial-gradient(ellipse 55% 50% at 70% 50%, rgba(160,185,175,0.10) 0%, transparent 65%),
-        radial-gradient(ellipse 40% 35% at 50% 60%, rgba(200,215,205,0.08) 0%, transparent 60%);
-      filter: blur(22px);
-      pointer-events: none;
-      z-index: 0;
-    }
 
     .photo {
       flex-shrink: 0;
       width: 155px;
       height: 210px;
       border-radius: 10px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.1);
       position: relative;
       z-index: 1;
-      transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
-                  box-shadow 0.4s ease;
+      perspective: 800px;
       will-change: transform;
-      box-shadow:
-        0 2px 4px rgba(0,0,0,0.5),
-        0 8px 16px rgba(0,0,0,0.5),
-        0 20px 40px rgba(0,0,0,0.45),
-        0 40px 70px rgba(0,0,0,0.35),
-        0 0 0 1px rgba(255,255,255,0.04);
+    }
 
+    .photo-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.55s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .photo:hover .photo-inner { transform: rotateY(180deg); }
+
+    .photo-front, .photo-back {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .photo-back {
+      transform: rotateY(180deg);
+      background: #0d0d0d;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .photo-back p {
+      font-size: 0.78rem;
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    .photo-back span {
+      display: block;
+      font-size: 1.4rem;
+      margin-bottom: 0.6rem;
     }
 
     .photo img {
@@ -255,7 +274,13 @@
       justify-content: space-between;
       gap: 1.5rem;
       align-items: flex-start;
+      position: relative;
+      transition: opacity 0.2s ease;
+      cursor: pointer;
     }
+    .proj-item:hover { transform: scale(1.03); }
+    .proj-item:hover .proj-name { text-shadow: 0 0 14px rgba(255,255,255,0.4); }
+    .proj-item:hover .proj-desc { color: #aaa; }
 
     .proj-left { flex: 1; min-width: 0; }
 
@@ -267,10 +292,11 @@
       display: inline-block;
       margin-bottom: 0.3rem;
     }
-    .proj-name:hover {
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      text-shadow: 0 0 12px rgba(255,255,255,0.3);
+    .proj-name::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 10px;
     }
 
     .proj-desc {
@@ -313,6 +339,11 @@
     .tag-gray   { background: #1f2937; color: #fff; }
 
     .tag { transition: filter 0.2s; }
+
+    body.loaded .photo {
+      transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+                  box-shadow 0.4s ease;
+    }
     .tag:hover { filter: brightness(1.5); }
 
     /* ── CONTACT ── */
@@ -413,7 +444,7 @@
         padding: 2rem 0;
       }
 
-      .proj-item { flex-direction: column; gap: 0.75rem; }
+      .proj-item { flex-direction: column; gap: 0.5rem; }
       .proj-tags { align-items: flex-start; }
       .proj-tags-row { justify-content: flex-start; }
     }
@@ -453,10 +484,30 @@
 
     <!-- PHOTOS -->
     <div class="photo-strip">
-      <div class="photo p1"><img src="images/foto1.jpg" alt="Linus på restaurang"></div>
-      <div class="photo p2"><img src="images/foto2.jpg" alt="Linus på båt i solnedgång"></div>
-      <div class="photo p3"><img src="images/foto3.jpg" alt="Linus åker skidor"></div>
-      <div class="photo p4"><img src="images/foto4.jpg" alt="Linus fiskar från båt"></div>
+      <div class="photo p1">
+        <div class="photo-inner">
+          <div class="photo-front"><img src="images/foto1.jpg" alt="Linus på restaurang"></div>
+          <div class="photo-back"><p>Maten var bra. Vädret med.</p></div>
+        </div>
+      </div>
+      <div class="photo p2">
+        <div class="photo-inner">
+          <div class="photo-front"><img src="images/foto2.jpg" alt="Linus på båt i solnedgång"></div>
+          <div class="photo-back"><p>Satt still i båten precis som man ska.</p></div>
+        </div>
+      </div>
+      <div class="photo p3">
+        <div class="photo-inner">
+          <div class="photo-front"><img src="images/foto3.jpg" alt="Linus åker skidor"></div>
+          <div class="photo-back"><p>Föll precis efter att bilden togs.</p></div>
+        </div>
+      </div>
+      <div class="photo p4">
+        <div class="photo-inner">
+          <div class="photo-front"><img src="images/foto4.jpg" alt="Linus fiskar från båt"></div>
+          <div class="photo-back"><p>3 timmar. Noll fiskar. 10/10 skulle göra igen.</p></div>
+        </div>
+      </div>
     </div>
 
     <!-- TIMELINE -->
@@ -586,8 +637,7 @@
     <div class="section-row" id="kontakt">
       <div class="section-label">Kontakt</div>
       <div class="contact-block">
-        <p>Alltid kul att höra från nya människor – hör av dig!</p>
-        <a href="mailto:linus.kammonen@outlook.com" class="contact-email">
+<a href="mailto:linus.kammonen@outlook.com" class="contact-email">
           linus.kammonen@outlook.com
         </a>
         <div class="contact-links">
@@ -603,7 +653,9 @@
     <p class="footer-copy">© 2026 Linus Kammonen</p>
   </footer>
 
-  <script></script>
+  <script>
+    requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.add('loaded')));
+  </script>
 
 </body>
 </html>
