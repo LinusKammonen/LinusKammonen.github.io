@@ -97,10 +97,10 @@
     /* ── PHOTO STRIP ── */
     .photo-strip {
       display: flex;
-      gap: 1.25rem;
+      gap: 0;
       overflow-x: auto;
       scrollbar-width: none;
-      padding: 2.5rem 0.5rem 4rem;
+      padding: 3rem 1.5rem 4.5rem;
       margin-bottom: 1rem;
       position: relative;
     }
@@ -109,14 +109,17 @@
 
     .photo {
       flex-shrink: 0;
-      width: 155px;
-      height: 210px;
+      width: 178px;
+      height: 242px;
+      margin-left: -1rem;
       border-radius: 10px;
       position: relative;
       z-index: 1;
       perspective: 800px;
       will-change: transform;
     }
+    .photo:first-child { margin-left: 0; }
+    .photo:hover { z-index: 5; }
 
     .photo-inner {
       position: relative;
@@ -169,11 +172,11 @@
       display: block;
     }
 
-    .p1 { transform: rotate(-3.5deg); }
-    .p2 { transform: rotate( 2.5deg); }
-    .p3 { transform: rotate(-1.5deg); }
-    .p4 { transform: rotate( 3deg);   }
-    .p5 { transform: rotate(-2deg);   }
+    .p1 { transform: translateY(18px) rotate(-5deg); }
+    .p2 { transform: translateY(-14px) rotate(4deg); }
+    .p3 { transform: translateY(22px) rotate(-3deg); }
+    .p4 { transform: translateY(-18px) rotate(5deg);   }
+    .p5 { transform: translateY(10px) rotate(-3deg);   }
 
     .photo.p1 img { object-position: 60% top; transform: scale(1.18); }
     .photo.p2 img { object-position: 60% center; }
@@ -511,7 +514,7 @@
       <div class="photo p4">
         <div class="photo-inner">
           <div class="photo-front"><img src="images/foto4.jpg" alt="Linus fiskar från båt"></div>
-          <div class="photo-back"><p>3 timmar. Noll fiskar. 10/10 skulle göra igen.</p></div>
+          <div class="photo-back"><p>3 timmar. Noll fiskar och regn. 10/10 skulle göra igen.</p></div>
         </div>
       </div>
     </div>
@@ -583,7 +586,7 @@
         <div class="proj-item">
           <div class="proj-left">
             <a href="https://github.com/LinusKammonen/SkiDataSimulator" target="_blank" rel="noopener" class="proj-name">SkiDataSimulator</a>
-            <p class="proj-desc">Skolprojekt i datamodellering och databaser. Simulerar skidåk och hanterar åkare, liftkort och skidorter via ett WPF-gränssnitt mot en PostgreSQL-databas.</p>
+            <p class="proj-desc">Simulerar skidåk och hanterar åkare, liftkort och skidorter via ett WPF-gränssnitt mot en PostgreSQL-databas.</p>
           </div>
           <div class="proj-tags">
             <div class="proj-tags-row">
@@ -599,7 +602,7 @@
         <div class="proj-item">
           <div class="proj-left">
             <a href="https://skvadern.net" target="_blank" rel="noopener" class="proj-name">skvadern.net</a>
-            <p class="proj-desc">Hemsida för Skvaderns Herrförening i Uppsala med ett användargränssnitt där föreningen kan hantera sin kalender.</p>
+            <p class="proj-desc">Herrföreningen Skvaderns officiella hemsida där de kan uppdatera om sina föreningsaktiviteter och knyta an nya medlemmar.</p>
           </div>
           <div class="proj-tags">
             <div class="proj-tags-row">
@@ -619,7 +622,7 @@
         <div class="proj-item">
           <div class="proj-left">
             <a href="https://avtryckdigital.se" target="_blank" rel="noopener" class="proj-name">avtryckdigital.se</a>
-            <p class="proj-desc">Hemsida byggd tillsammans med en annan systemutvecklarstudent, med animationer i Framer Motion.</p>
+            <p class="proj-desc">Hemsida byggd tillsammans med en annan systemutvecklarstudent.</p>
           </div>
           <div class="proj-tags">
             <div class="proj-tags-row">
