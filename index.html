@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="sv" translate="no" class="notranslate">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Linus Kammonen – webbutvecklare och designer från Uppsala.">
+  <meta name="description" content="Linus Kammonen – webbutvecklare och designer från Uppsala." data-content-en="Linus Kammonen – web developer and designer from Uppsala.">
   <meta name="google-site-verification" content="by3F0iec2egp4BteLzd-beeeuSjTCzOkbel4wLJLOGM" />
+  <meta name="google" content="notranslate">
   <title>Linus Kammonen</title>
   <!-- Alternativ 1: LK monogram – byt ut raden nedan mot denna:
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23000'/><text x='16' y='22' font-family='Inter,sans-serif' font-weight='700' font-size='14' fill='%23fff' text-anchor='middle'>LK</text></svg>">
@@ -70,6 +71,21 @@
       transition: color 0.2s;
     }
     .nav-icons a:hover { color: var(--text); }
+
+    .lang-toggle {
+      font-family: inherit;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--muted);
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.25rem 0.65rem;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .lang-toggle:hover { color: var(--text); border-color: #444; }
 
     /* ── MAIN ── */
     main {
@@ -480,6 +496,7 @@
           <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
         </svg>
       </a>
+      <button id="lang-toggle" class="lang-toggle" type="button">EN</button>
     </div>
   </nav>
 
@@ -488,63 +505,63 @@
     <!-- PAGE HEADER -->
     <div class="page-header" id="hero">
       <h1>Linus Kammonen</h1>
-      <p>Driven systemutvecklarstudent från Uppsala med många intressen.</p>
+      <p data-en="Driven software engineering student from Uppsala with many interests.">Driven systemutvecklarstudent från Uppsala med många intressen.</p>
     </div>
 
     <!-- PHOTOS -->
     <div class="photo-strip">
       <div class="photo p1">
         <div class="photo-inner">
-          <div class="photo-front"><img src="images/foto1.jpg" alt="Linus på restaurang"></div>
-          <div class="photo-back"><p>Maten var bra. Vädret med.</p></div>
+          <div class="photo-front"><img src="images/foto1.jpg" alt="Linus på restaurang" data-alt-en="Linus at a restaurant"></div>
+          <div class="photo-back"><p data-en="The food was good. So was the weather.">Maten var bra. Vädret med.</p></div>
         </div>
       </div>
       <div class="photo p2">
         <div class="photo-inner">
-          <div class="photo-front"><img src="images/foto2.jpg" alt="Linus på båt i solnedgång"></div>
-          <div class="photo-back"><p>Satt still i båten precis som man ska.</p></div>
+          <div class="photo-front"><img src="images/foto2.jpg" alt="Linus på båt i solnedgång" data-alt-en="Linus on a boat at sunset"></div>
+          <div class="photo-back"><p data-en="Sat still in the boat, just like you're supposed to.">Satt still i båten precis som man ska.</p></div>
         </div>
       </div>
       <div class="photo p3">
         <div class="photo-inner">
-          <div class="photo-front"><img src="images/foto3.jpg" alt="Linus åker skidor"></div>
-          <div class="photo-back"><p>Föll precis efter att bilden togs.</p></div>
+          <div class="photo-front"><img src="images/foto3.jpg" alt="Linus åker skidor" data-alt-en="Linus skiing"></div>
+          <div class="photo-back"><p data-en="Fell right after the picture was taken.">Föll precis efter att bilden togs.</p></div>
         </div>
       </div>
       <div class="photo p4">
         <div class="photo-inner">
-          <div class="photo-front"><img src="images/foto4.jpg" alt="Linus fiskar från båt"></div>
-          <div class="photo-back"><p>3 timmar. Noll fiskar och regn. 10/10 skulle göra igen.</p></div>
+          <div class="photo-front"><img src="images/foto4.jpg" alt="Linus fiskar från båt" data-alt-en="Linus fishing from a boat"></div>
+          <div class="photo-back"><p data-en="3 hours. Zero fish and rain. 10/10 would do it again.">3 timmar. Noll fiskar och regn. 10/10 skulle göra igen.</p></div>
         </div>
       </div>
     </div>
 
     <!-- TIMELINE -->
     <div class="section-row" id="om-mig">
-      <div class="section-label">Tidslinje</div>
+      <div class="section-label" data-en="Timeline">Tidslinje</div>
       <div class="timeline">
 
         <div class="tl-item">
           <div class="tl-dot" style="background:#3b82f6;"></div>
           <div class="tl-head">
-            <span class="tl-org">Mittuniversitetet</span>
+            <span class="tl-org" data-en="Mid Sweden University">Mittuniversitetet</span>
             <span class="tl-year">2025 – 2028</span>
           </div>
-          <div class="tl-role">Informatik med inriktning systemutveckling</div>
+          <div class="tl-role" data-en="Informatics with a focus on software development">Informatik med inriktning systemutveckling</div>
           <ul class="tl-bullets">
-            <li>Systemutveckling på distans</li>
+            <li data-en="Software development, distance learning">Systemutveckling på distans</li>
           </ul>
         </div>
 
         <div class="tl-item">
           <div class="tl-dot" style="background:#ec4899;"></div>
           <div class="tl-head">
-            <span class="tl-org">Uppsala Universitet</span>
+            <span class="tl-org" data-en="Uppsala University">Uppsala Universitet</span>
             <span class="tl-year">2024 – 2025</span>
           </div>
-          <div class="tl-role">Tekniskt naturvetenskapligt basår</div>
+          <div class="tl-role" data-en="Technical and scientific foundation year">Tekniskt naturvetenskapligt basår</div>
           <ul class="tl-bullets">
-            <li>Behörighetsgivande basår inom naturvetenskap</li>
+            <li data-en="Qualifying foundation year in natural science">Behörighetsgivande basår inom naturvetenskap</li>
           </ul>
         </div>
 
@@ -554,9 +571,9 @@
             <span class="tl-org">Bucher Emhart Glass</span>
             <span class="tl-year">2022 - 2024</span>
           </div>
-          <div class="tl-role">Montör</div>
+          <div class="tl-role" data-en="Assembler">Montör</div>
           <ul class="tl-bullets">
-            <li>Montering av glasmaskiner och maskindelar</li>
+            <li data-en="Assembly of glass machines and machine parts">Montering av glasmaskiner och maskindelar</li>
           </ul>
         </div>
 
@@ -565,48 +582,19 @@
 
     <!-- PROJECTS -->
     <div class="section-row" id="projekt">
-      <div class="section-label">Projekt</div>
+      <div class="section-label" data-en="Projects">Projekt</div>
       <div>
-      <p style="font-size:0.82rem; color:var(--muted); margin-bottom:1.5rem; line-height:1.7;">Ett urval av sidoprojekt och skolprojekt.</p>
+      <p style="font-size:0.82rem; color:var(--muted); margin-bottom:1.5rem; line-height:1.7;" data-en="A selection of side projects and school projects.">Ett urval av sidoprojekt och skolprojekt.</p>
       <div class="projects-list">
 
         <div class="proj-item">
           <div class="proj-left">
-            <a href="https://www.figma.com/design/EZzva7uukT91oOgohvQhub/GrannL%C3%A5n---interaktiv-prototyp?node-id=1-943&t=Ub9XW2SdAJNgFod8-1" target="_blank" rel="noopener" class="proj-name">GrannLån</a>
-            <p class="proj-desc">Interaktiv UX/UI-prototyp skapad i Figma som skolprojekt. Fokus på användbarhet och tillgänglighet.</p>
-          </div>
-          <div class="proj-tags">
-            <div class="proj-tags-row">
-              <span class="tag tag-pink">Figma</span>
-              <span class="tag tag-orange">UX/UI</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="proj-item">
-          <div class="proj-left">
-            <a href="https://github.com/LinusKammonen/SkiDataSimulator" target="_blank" rel="noopener" class="proj-name">SkiDataSimulator</a>
-            <p class="proj-desc">Simulerar skidåk och hanterar åkare, liftkort och skidorter via ett WPF-gränssnitt mot en PostgreSQL-databas.</p>
-          </div>
-          <div class="proj-tags">
-            <div class="proj-tags-row">
-              <span class="tag tag-purple">C#</span>
-              <span class="tag tag-gray">WPF</span>
-            </div>
-            <div class="proj-tags-row">
-              <span class="tag tag-blue">PostgreSQL</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="proj-item">
-          <div class="proj-left">
             <a href="https://skvadern.net" target="_blank" rel="noopener" class="proj-name">skvadern.net</a>
-            <p class="proj-desc">Herrföreningen Skvaderns officiella hemsida där de kan uppdatera om sina föreningsaktiviteter och knyta an nya medlemmar.</p>
+            <p class="proj-desc" data-en="The official website for the men's association Skvadern, where they can post updates about club activities and connect with new members.">Herrföreningen Skvaderns officiella hemsida där de kan uppdatera om sina föreningsaktiviteter och knyta an nya medlemmar.</p>
           </div>
           <div class="proj-tags">
             <div class="proj-tags-row">
-              <span class="tag tag-green">AI-assisterad</span>
+              <span class="tag tag-green" data-en="AI-assisted">AI-assisterad</span>
             </div>
             <div class="proj-tags-row">
               <span class="tag tag-blue">Next.js</span>
@@ -622,11 +610,11 @@
         <div class="proj-item">
           <div class="proj-left">
             <a href="https://avtryckdigital.se" target="_blank" rel="noopener" class="proj-name">avtryckdigital.se</a>
-            <p class="proj-desc">Hemsida byggd tillsammans med en annan systemutvecklarstudent.</p>
+            <p class="proj-desc" data-en="Website built together with another software engineering student.">Hemsida byggd tillsammans med en annan systemutvecklarstudent.</p>
           </div>
           <div class="proj-tags">
             <div class="proj-tags-row">
-              <span class="tag tag-green">AI-assisterad</span>
+              <span class="tag tag-green" data-en="AI-assisted">AI-assisterad</span>
             </div>
             <div class="proj-tags-row">
               <span class="tag tag-blue">Next.js</span>
@@ -644,7 +632,7 @@
 
     <!-- CONTACT -->
     <div class="section-row" id="kontakt">
-      <div class="section-label">Kontakt</div>
+      <div class="section-label" data-en="Contact">Kontakt</div>
       <div class="contact-block">
 <a href="mailto:linus.kammonen@outlook.com" class="contact-email">
           linus.kammonen@outlook.com
@@ -664,6 +652,57 @@
 
   <script>
     requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.add('loaded')));
+
+    (function () {
+      const STORAGE_KEY = 'lk-lang';
+
+      function detectDefaultLang() {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved === 'sv' || saved === 'en') return saved;
+        const navLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+        return navLang.startsWith('sv') ? 'sv' : 'en';
+      }
+
+      function applyLang(lang) {
+        document.documentElement.lang = lang;
+
+        document.querySelectorAll('[data-en]').forEach(el => {
+          if (el.dataset.sv === undefined) el.dataset.sv = el.textContent;
+          el.textContent = lang === 'en' ? el.dataset.en : el.dataset.sv;
+        });
+
+        document.querySelectorAll('[data-alt-en]').forEach(el => {
+          if (el.dataset.altSv === undefined) el.dataset.altSv = el.getAttribute('alt');
+          el.setAttribute('alt', lang === 'en' ? el.dataset.altEn : el.dataset.altSv);
+        });
+
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc && metaDesc.dataset.contentEn) {
+          if (metaDesc.dataset.contentSv === undefined) metaDesc.dataset.contentSv = metaDesc.getAttribute('content');
+          metaDesc.setAttribute('content', lang === 'en' ? metaDesc.dataset.contentEn : metaDesc.dataset.contentSv);
+        }
+
+        updateToggleLabel(lang);
+        localStorage.setItem(STORAGE_KEY, lang);
+      }
+
+      function updateToggleLabel(lang) {
+        const toggle = document.getElementById('lang-toggle');
+        if (!toggle) return;
+        toggle.textContent = lang === 'en' ? 'SV' : 'EN';
+        const label = lang === 'en' ? 'Byt till svenska' : 'Switch to English';
+        toggle.setAttribute('aria-label', label);
+        toggle.setAttribute('title', label);
+      }
+
+      let currentLang = detectDefaultLang();
+      applyLang(currentLang);
+
+      document.getElementById('lang-toggle').addEventListener('click', () => {
+        currentLang = currentLang === 'en' ? 'sv' : 'en';
+        applyLang(currentLang);
+      });
+    })();
   </script>
 
 </body>
